@@ -1,7 +1,9 @@
 *.log
 .idea
+*.iml
 .DS_Store
 thumbs.db
-node_modules
 build
 tmp
+.gradle
+local.properties

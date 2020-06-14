@@ -1,0 +1,49 @@
+plugins {
+    id 'org.jetbrains.kotlin.multiplatform'
+}
+
+kotlin {
+    mingwX64("windows") {
+        binaries {
+            sharedLib()
+        }
+    }
+
+    macosX64("macos") {
+        binaries {
+            framework()
+        }
+    }
+
+    iosX64("ios") {
+        binaries {
+            framework()
+        }
+    }
+
+    jvm("android")
+
+    wasm32("wasm") {
+        binaries {
+            executable() // sharedLib for WASM has not been supported
+        }
+    }
+
+    sourceSets {
+        commonMain {
+            dependencies {
+                api 'org.jetbrains.kotlin:kotlin-stdlib-common'
+            }
+        }
+
+        androidMain {
+            dependencies {
+                api 'org.jetbrains.kotlin:kotlin-stdlib'
+            }
+        }
+    }
+}
+
+configurations {
+    compileClasspath
+}

@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+import public "model.proto";
+
+service ItemService {
+    rpc getItem (GetItemRequest) returns (GetItemResponse) {}
+}
+
+message GetItemRequest {
+    string name = 1;
+}
+
+message GetItemResponse {
+    Item item = 1;
+}
